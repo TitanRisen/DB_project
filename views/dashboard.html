@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- <link rel="icon" href="../../favicon.ico"> -->
+
+<title>专家管理系统</title>
+
+<!-- Bootstrap core CSS -->
+<link href="../public/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="../public/stylesheets/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+<!--顶端Nav-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="#">专家管理系统</a> </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#dashboard" data-toggle="tab">操作台</a></li>
+        <li><a href="#individual" data-toggle="tab">个人信息</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--内容-->
+<div id="outer_tab" class="tab-content">
+  <div class="tab-pane fade in active" id="dashboard">
+    <div class="container-fluid">
+      <div class="row"> 
+        <!--         左侧Nav-->
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#home" data-toggle="tab">首页 <span class="sr-only">(current)</span></a></li>
+            <li><a href="#list" data-toggle="tab">专家信息维护</a></li>
+          </ul>
+        </div>
+        <!--        右侧Tab-->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <div id="myTabContent" class="tab-content"> 
+            <!--       首页-->
+            <div class="tab-pane fade in active" id="home">
+              <h1 class="page-header">待审核专家</h1>
+              <div class="row placeholders">
+                <div class="col-xs-6 col-sm-3 placeholder"> <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                  <h4>Label</h4>
+                  <span class="text-muted">Something else</span> </div>
+                <div class="col-xs-6 col-sm-3 placeholder"> <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                  <h4>Label</h4>
+                  <span class="text-muted">Something else</span> </div>
+                <div class="col-xs-6 col-sm-3 placeholder"> <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                  <h4>Label</h4>
+                  <span class="text-muted">Something else</span> </div>
+                <div class="col-xs-6 col-sm-3 placeholder"> <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                  <h4>Label</h4>
+                  <span class="text-muted">Something else</span> </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="list1">
+              <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="Search...">
+              </form>
+              <h2 class="sub-header">专家信息列表</h2>
+              <!--          专家信息维护-->
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>专家编号</th>
+                      <th>姓名</th>
+                      <th>工作单位</th>
+                      <th>联系单位</th>
+                      <th>状态</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1,001</td>
+                      <td>Lorem</td>
+                      <td>ipsum</td>
+                      <td>dolor</td>
+                      <td>sit</td>
+                    </tr>
+                    <tr>
+                      <td>1,002</td>
+                      <td>amet</td>
+                      <td>consectetur</td>
+                      <td>adipiscing</td>
+                      <td>elit</td>
+                    </tr>
+                    <tr>
+                      <td>1,003</td>
+                      <td>Integer</td>
+                      <td>nec</td>
+                      <td>odio</td>
+                      <td>Praesent</td>
+                    </tr>
+                    <tr>
+                      <td>1,003</td>
+                      <td>libero</td>
+                      <td>Sed</td>
+                      <td>cursus</td>
+                      <td>ante</td>
+                    </tr>
+                    <tr>
+                      <td>1,004</td>
+                      <td>dapibus</td>
+                      <td>diam</td>
+                      <td>Sed</td>
+                      <td>nisi</td>
+                    </tr>
+                    <tr>
+                      <td>1,005</td>
+                      <td>Nulla</td>
+                      <td>quis</td>
+                      <td>sem</td>
+                      <td>at</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="list">
+              <h2 class="sub-header">专家信息列表</h2>
+              <!--          专家详细信息审核-->
+              <form>
+                <table class="table table-bordered">
+                  <caption>
+                  基本信息
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th>专家证书编号</th>
+                      <td>201401212018</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>证书有效期限</th>
+                      <td>2015-12-30</td>
+                    </tr>
+                    <tr>
+                      <th>专家姓名</th>
+                      <td>汤德佑</td>
+                    </tr>
+                    <tr>
+                      <th>专家性别</th>
+                      <td>男</td>
+                    </tr>
+                    <tr>
+                      <th>出生日期</th>
+                      <td>1980-1-9</td>
+                    </tr>
+                    <tr>
+                      <th>政治面貌</th>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th>颁发机构</th>
+                      <td>广州市公安局</td>
+                    </tr>
+                    <tr>
+                      <th>状态</th>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th>照片</th>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th>证件类型</th>
+                      <td>居民身份证</td>
+                    </tr>
+                    <tr>
+                      <th>证件编号</th>
+                      <td>132113213</td>
+                    </tr>
+                    <tr>
+                      <td>同意申请</td>
+                      <td>驳回申请</td>
+                      <td>终止资格</td>
+                    </tr>
+                    <tr>
+                      <th>驳回原因</th>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="individual"> 
+    <!--         个人信息-->
+    <div class="container">
+      <form class="form-signin">
+        <h2 class="form-signin-heading">密码修改</h2>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="当前密码" required>
+        <input type="password" class="form-control" placeholder="新密码" required>
+        <input type="password" class="form-control" placeholder="再次确认密码" required>
+        <div class="row">
+          <div class="col-xs-6 col-md-3">
+            <input type ="text" placeholder="验证码" required>
+          </div>
+          <div class="col-xs-6 col-md-3"> <a href="#" class="thumbnail"> <img src="..." alt="..."> </a> </div>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">确认</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+    ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="../public/js/jquery-3.2.1.min.js"></script> 
+<!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> --> 
+<script src="../public/js/bootstrap.min.js"></script>
+</body>
+</html>
