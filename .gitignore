@@ -1,0 +1,6 @@
+#ignore folders
+node_modules/*
+.vscode/*
+.idea/*
+public/json/*
+public/images/*

@@ -6,13 +6,18 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var expert_board = require('./routes/expert_board');
+var dashboard = require('./routes/dashboard');
 
 var app = express();
 
-// view engine setup
+//设置视图文件的存放路径
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+//封装ejs引擎，注册html引擎
+//之所以要这么做是为了创建模板文件时，可以使用代码补全功能
+app.engine("html",require("ejs").renderFile);
+//设置视图引擎
+app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -20,10 +25,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'views')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/expert_board', expert_board);
+app.use('/dashboard', dashboard);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

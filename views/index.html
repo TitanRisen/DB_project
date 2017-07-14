@@ -7,14 +7,14 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" href="../../favicon.ico">
-<title>专家管理系统</title>
+<!-- <link rel="icon" href="../../favicon.ico"> -->
+<title><%- title %></title>
 
 <!-- Bootstrap core CSS -->
-<link href="../public/stylesheets/bootstrap.min.css" rel="stylesheet">
+<link href="./stylesheets/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="../public/stylesheets/signin.css" rel="stylesheet">
+<link href="./stylesheets/signin.css" rel="stylesheet">
 </head>
 
 <body>
@@ -52,7 +52,9 @@
           <div class="col-xs-6 col-md-3">
             <input type ="text" placeholder="验证码" required>
           </div>
-          <div class="col-xs-6 col-md-3"> <a href="#" class="thumbnail"> <img src="..." alt="..."> </a> </div>
+          <div class="col-xs-6 col-md-3"> <a href="#" class="thumbnail"> 
+            <!-- <img src="..." alt="...">  -->
+          </a> </div>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
         <button class="btn btn-lg btn-block active" href="#signin" data-toggle="tab" > 登录 </button>
@@ -64,8 +66,8 @@
 <!-- Bootstrap core JavaScript
     ================================================== --> 
 <!-- Placed at the end of the document so the pages load faster --> 
-<script src="../public/js/jquery-3.2.1.min.js"></script> 
+<script src="./js/jquery-3.2.1.min.js"></script> 
 <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> --> 
-<script src="../public/js/bootstrap.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
 </body>
 </html>
