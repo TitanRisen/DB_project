@@ -8,7 +8,9 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <!-- <link rel="icon" href="../../favicon.ico"> -->
-<title><%- title %></title>
+<title>
+<%- title %>
+</title>
 
 <!-- Bootstrap core CSS -->
 <link href="./stylesheets/bootstrap.min.css" rel="stylesheet">
@@ -21,12 +23,12 @@
 <div id="myTabContent" class="tab-content">
   <div class="tab-pane fade in active" id="signin">
     <div class="container">
-      <form class="form-signin">
+      <form class="form-signin" action="login" method="POST">
         <h2 class="form-signin-heading">专家管理系统登录</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="帐号" required autofocus>
+        <input name="account" type="text" id="inputEmail" class="form-control" placeholder="帐号" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="密码" required>
+        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="密码" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
         <button class="btn btn-lg btn-block active" href="#register" data-toggle="tab">注册 </button>
       </form>
@@ -34,27 +36,25 @@
   </div>
   <div class="tab-pane fade" id="register">
     <div class="container">
-      <form class="form-signin">
+      <form class="form-signin" action="register" method="POST">
         <h2 class="form-signin-heading">专家管理系统注册</h2>
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> 角色 <span class="caret"></span> </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">专家</a></li>
-            <li><a href="#">管理员</a></li>
-          </ul>
-        </div>
+        <label for="name">选择列表</label>
+        <select name = "account_type" class="form-control" value="0">
+          <option value="0">专家</option>
+          <option value="1">管理员</option>
+        </select>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail2" class="form-control" placeholder="帐号" required autofocus>
+        <input name="account" type="text" id="inputEmail2" class="form-control" placeholder="帐号" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword2" class="form-control" placeholder="密码" required>
+        <input name="password" type="password" id="inputPassword2" class="form-control" placeholder="密码" required>
         <input type="password" class="form-control" placeholder="再次确认密码" required>
         <div class="row">
           <div class="col-xs-6 col-md-3">
-            <input type ="text" placeholder="验证码" required>
+            <input name="identification" type ="text" placeholder="验证码" required>
           </div>
           <div class="col-xs-6 col-md-3"> <a href="#" class="thumbnail"> 
-            <!-- <img src="..." alt="...">  -->
-          </a> </div>
+            <!-- <img src="..." alt="...">  --> 
+            </a> </div>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
         <button class="btn btn-lg btn-block active" href="#signin" data-toggle="tab" > 登录 </button>

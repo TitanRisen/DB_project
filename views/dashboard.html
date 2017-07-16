@@ -9,7 +9,9 @@
 <meta name="author" content="">
 <!-- <link rel="icon" href="../../favicon.ico"> -->
 
-<title><%- title %></title>
+<title>
+<%- title %>
+</title>
 
 <!-- Bootstrap core CSS -->
 <link href="./stylesheets/bootstrap.min.css" rel="stylesheet">
@@ -35,7 +37,8 @@
 </nav>
 <!--内容-->
 <div id="outer_tab" class="tab-content">
-  <div class="tab-pane fade in active" id="dashboard">
+  <div class="tab-pane fade in active" id="dashboard"> 
+    <!-- 操作台-->
     <div class="container-fluid">
       <div class="row"> 
         <!--         左侧Nav-->
@@ -52,21 +55,16 @@
             <div class="tab-pane fade in active" id="home">
               <h1 class="page-header">待审核专家</h1>
               <div class="row placeholders">
-                <div class="col-xs-6 col-sm-3 placeholder"> <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                  <h4>Label</h4>
+                <% for(var i=0; i<experts.length; i++) {%>
+                <a href='/dashboard/expert_detail?expert_ID=<%= experts[i].ID %>'>
+                <div class="col-xs-6 col-sm-3 placeholder"> <img src="<%= experts[i].photo %>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                  <h4><%= experts[i].name %></h4>
                   <span class="text-muted">Something else</span> </div>
-                <div class="col-xs-6 col-sm-3 placeholder"> <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                  <h4>Label</h4>
-                  <span class="text-muted">Something else</span> </div>
-                <div class="col-xs-6 col-sm-3 placeholder"> <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                  <h4>Label</h4>
-                  <span class="text-muted">Something else</span> </div>
-                <div class="col-xs-6 col-sm-3 placeholder"> <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                  <h4>Label</h4>
-                  <span class="text-muted">Something else</span> </div>
+                </a>
+                <% } %>
               </div>
             </div>
-            <div class="tab-pane fade" id="list1">
+            <div class="tab-pane fade" id="list">
               <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="Search...">
               </form>
@@ -79,59 +77,27 @@
                       <th>专家编号</th>
                       <th>姓名</th>
                       <th>工作单位</th>
-                      <th>联系单位</th>
+                      <th>联系电话</th>
                       <th>状态</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1,001</td>
-                      <td>Lorem</td>
-                      <td>ipsum</td>
-                      <td>dolor</td>
-                      <td>sit</td>
+                    <% for(var i=0; i<experts.length; i++) {%>
+                    <tr> 
+                      <!--                    a href标签不起作用-->
+                      <td><%= experts[i].ID %></td>
+                      <td><%= experts[i].name %></td>
+                      <td><%= experts[i].work_unit %></td>
+                      <td><%= experts[i].phone_number %></td>
+                      <td><%= experts[i].status %></td>
                     </tr>
-                    <tr>
-                      <td>1,002</td>
-                      <td>amet</td>
-                      <td>consectetur</td>
-                      <td>adipiscing</td>
-                      <td>elit</td>
-                    </tr>
-                    <tr>
-                      <td>1,003</td>
-                      <td>Integer</td>
-                      <td>nec</td>
-                      <td>odio</td>
-                      <td>Praesent</td>
-                    </tr>
-                    <tr>
-                      <td>1,003</td>
-                      <td>libero</td>
-                      <td>Sed</td>
-                      <td>cursus</td>
-                      <td>ante</td>
-                    </tr>
-                    <tr>
-                      <td>1,004</td>
-                      <td>dapibus</td>
-                      <td>diam</td>
-                      <td>Sed</td>
-                      <td>nisi</td>
-                    </tr>
-                    <tr>
-                      <td>1,005</td>
-                      <td>Nulla</td>
-                      <td>quis</td>
-                      <td>sem</td>
-                      <td>at</td>
-                    </tr>
+                    <% } %>
                   </tbody>
                 </table>
               </div>
             </div>
-            <div class="tab-pane fade" id="list">
-              <h2 class="sub-header">专家信息列表</h2>
+            <div class="tab-pane fade" id="detail">
+              <h2 class="sub-header">专家详细信息</h2>
               <!--          专家详细信息审核-->
               <form>
                 <table class="table table-bordered">
@@ -207,17 +173,19 @@
   <div class="tab-pane fade" id="individual"> 
     <!--         个人信息-->
     <div class="container">
-      <form class="form-signin">
+      <form method = "POST" action= "/dashboard/altering" class="form-signin">
         <h2 class="form-signin-heading">密码修改</h2>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="当前密码" required>
-        <input type="password" class="form-control" placeholder="新密码" required>
+        <input name = "old" type="password" id="inputPassword" class="form-control" placeholder="当前密码" required>
+        <input name = "new" type="password" class="form-control" placeholder="新密码" required>
         <input type="password" class="form-control" placeholder="再次确认密码" required>
         <div class="row">
           <div class="col-xs-6 col-md-3">
             <input type ="text" placeholder="验证码" required>
           </div>
-          <div class="col-xs-6 col-md-3"> <a href="#" class="thumbnail"> <img src="..." alt="..."> </a> </div>
+          <div class="col-xs-6 col-md-3"> <a href="#" class="thumbnail"> 
+            <!-- <img src="..." alt="...">  --> 
+            </a> </div>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">确认</button>
       </form>

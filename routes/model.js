@@ -46,12 +46,17 @@ model.expert = sequelize.define('expert', {
         primaryKey: true,
         autoIncrement: true
     },
+    account_ID: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+    },
     expert_credential_id: Sequelize.STRING(50),
     status: Sequelize.INTEGER,
-    expert_credential_expire: Sequelize.DATE,
+    //DATEONLY不起作用
+    expert_credential_expire: Sequelize.DATEONLY,
     name: Sequelize.STRING(50),
     gender: Sequelize.INTEGER,
-    born_date: Sequelize.STRING(50),
+    born_date: Sequelize.DATEONLY,
     photo: Sequelize.STRING(50),
     political_status: Sequelize.INTEGER,
     credential_type: Sequelize.INTEGER,
@@ -80,3 +85,5 @@ model.expert = sequelize.define('expert', {
         // 是否需要增加createdAt、updatedAt、deletedAt字段
         'timestamps': false
     });
+
+module.exports = model;

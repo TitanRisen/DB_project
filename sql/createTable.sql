@@ -37,6 +37,7 @@ DROP TABLE IF EXISTS `expert` ;
 
 CREATE TABLE IF NOT EXISTS `expert` (
   `ID` INT NOT NULL AUTO_INCREMENT,
+  `account_ID` INT NOT NULL,
   `expert_credential_id` VARCHAR(45) NULL,
   `status` TINYINT(2) NULL,
   `expert_credential_expire` DATE NULL,
@@ -64,7 +65,13 @@ CREATE TABLE IF NOT EXISTS `expert` (
   `speciality` VARCHAR(300) NULL,
   `achievement` VARCHAR(300) NULL,
   `supplement` VARCHAR(300) NULL,
-  PRIMARY KEY (`ID`))
+  PRIMARY KEY (`ID`, `account_ID`),
+  INDEX `fk_expert_account1_idx` (`account_ID` ASC),
+  CONSTRAINT `fk_expert_account1`
+    FOREIGN KEY (`account_ID`)
+    REFERENCES `account` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
